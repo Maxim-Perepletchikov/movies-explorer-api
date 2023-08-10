@@ -1,8 +1,8 @@
 const allowedCors = [
   'http://localhost:3000',
   'http://localhost:3001',
-  'https://mymesto.nomoreparties.sbs',
-  'https://api.mymesto.nomoreparties.sbs',
+  'https://my-movies-explorer.nomoreparties.co',
+  'https://api.my-movies-explorer.nomoreparties.co',
 ];
 
 const cors = (req, res, next) => {
