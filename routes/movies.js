@@ -15,13 +15,13 @@ movieRouter.post('/', celebrate({
     image: Joi.string().required().regex(LINK_REGEX),
     trailerLink: Joi.string().required().regex(LINK_REGEX),
     thumbnail: Joi.string().required().regex(LINK_REGEX),
-    moviesId: Joi.number().required(),
+    movieId: Joi.number().required(),
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),
   }),
 }), createMovie);
 movieRouter.delete('/:movieId', celebrate({
-  body: Joi.object().keys({
+  params: Joi.object().keys({
     movieId: Joi.string().required().hex().length(24),
   }),
 }), deleteMovie);

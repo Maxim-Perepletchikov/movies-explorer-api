@@ -1,3 +1,4 @@
+require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const jsonWebToken = require('jsonwebtoken');
 const User = require('../models/user');
@@ -33,6 +34,10 @@ const updateUserInfo = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new ValidationError('Переданы некорректные данные'));
+        return;
+      }
+      if (err.code === 11000) {
+        next(new ConflictError('Пользователь с таким email уже существует'));
         return;
       }
       next(err);
